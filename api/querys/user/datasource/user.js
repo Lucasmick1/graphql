@@ -28,20 +28,34 @@ class UsersAPI extends RESTDataSource {
 
     async includeUser(user) {
         const [role] = await this.get(`/roles?type=${user.role}`)
-        if(!role){
+        if (!role) {
             return null
         }
 
         const users = await this.get('/users')
         const id = users.length + 1
 
-        const userCreated = await this.post('/users', {...user, id, role: role.id})
+        const userCreated = await this.post('/users', { ...user, id, role: role.id })
 
-        return {...userCreated, role}
+        return { ...userCreated, role }
     }
 
-    async updateUser({id, ...update}){
-        console.log(id, update)
+    async updateUser({ id: userId, ...update }) {
+        const user = await this.get(`/users/${userId}`)
+        if (!user) {
+            return {}
+        }
+        
+        const updateUser = {
+            ...user,
+            ...update,
+        }
+        
+        await this.put(`/users/${user.id}`, updateUser)
+        
+        const [role] = await this.get(`/roles?id=${updateUser.role}`)
+        return { ...updateUser, role }
+
     }
 }
 

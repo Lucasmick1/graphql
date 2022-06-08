@@ -1,0 +1,15 @@
+const { gql } = require('apollo-server')
+
+const roleSchema = gql`
+    type Roles {
+        id: ID!
+        type: String!
+    }
+
+    type Query {
+        roles: [Roles],
+        role(id: ID!): Roles
+    }
+`
+
+module.exports = roleSchema

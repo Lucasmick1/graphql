@@ -20,7 +20,7 @@ const userSchema = gql`
 
     type Mutation {
         includeUser(nome: String!, ativo: Boolean!, email: String, role: String!): User!,
-        updateUser(id: ID!, nome: String, ativo: Boolean, email: String, role: String): User!
+        updateUser(id: ID!, nome: String, ativo: Boolean, email: String, role: ID): User!
     }
 `
 

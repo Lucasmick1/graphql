@@ -57,6 +57,11 @@ class UsersAPI extends RESTDataSource {
         return { ...updateUser, role }
 
     }
+
+    async deleteUserById(id){
+        await this.delete(`/users/${id}`)
+        return id
+    }
 }
 
 module.exports = UsersAPI

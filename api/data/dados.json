@@ -2,23 +2,9 @@
   "users": [
     {
       "id": 2,
-      "nome": "Lucas",
-      "ativo": true,
-      "email": "lucas_@lucas.com",
-      "role": "2"
-    },
-    {
-      "id": 2,
       "nome": "Gabriel Costa",
       "ativo": true,
       "email": "g@g.com",
-      "role": 1
-    },
-    {
-      "id": 3,
-      "nome": "Flavia Lins",
-      "ativo": true,
-      "email": "f@f.com",
       "role": 1
     },
     {

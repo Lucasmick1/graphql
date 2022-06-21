@@ -31,11 +31,11 @@ class UsersAPI extends RESTDataSource {
         if (!role) {
             return null
         }
-
-        const users = await this.get('/users')
-        const id = users.length + 1
+        const { id: lastId } = await this.get('/lastUserId')
+        const id = lastId + 1
 
         const userCreated = await this.post('/users', { ...user, id, role: role.id })
+        await this.put('/lastUserId', { id })
 
         return { ...userCreated, role }
     }
@@ -45,20 +45,20 @@ class UsersAPI extends RESTDataSource {
         if (!user) {
             return {}
         }
-        
+
         const updateUser = {
             ...user,
             ...update,
         }
-        
+
         await this.put(`/users/${user.id}`, updateUser)
-        
+
         const [role] = await this.get(`/roles?id=${updateUser.role}`)
         return { ...updateUser, role }
 
     }
 
-    async deleteUserById(id){
+    async deleteUserById(id) {
         await this.delete(`/users/${id}`)
         return id
     }

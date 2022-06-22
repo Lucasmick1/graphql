@@ -1,7 +1,7 @@
 const { GraphQLScalarType } = require('graphql')
 
 const userResolvers = {
-    RolesType: {
+    RoleTypes: {
         ESTUDANTE: "ESTUDANTE", // mapeia os valores enumerados para um valor que queremos utilizar
         COORDENACAO: "COORDENACAO",
         DOCENTE: "DOCENTE"

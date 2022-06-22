@@ -48,6 +48,14 @@
       "role": 1,
       "createdAt": "2022-06-21T00:00:00.000Z",
       "id": 9
+    },
+    {
+      "nome": "lucas",
+      "ativo": false,
+      "email": "l@l.com",
+      "role": "COORDENACAO",
+      "createdAt": "2022-06-22T00:00:00.000Z",
+      "id": 10
     }
   ],
   "roles": [
@@ -65,6 +73,6 @@
     }
   ],
   "lastUserId": {
-    "id": 9
+    "id": 10
   }
 }

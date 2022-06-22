@@ -11,6 +11,14 @@ const userSchema = gql`
         createdAt: DateTime
     }
 
+    input UserInput {
+        nome: String
+        ativo: Boolean
+        email: String
+        role: RoleTypes #Não pode receber um objeto como tipo, apenas scalares ( string, number, boolean) e outros inputs e listas 
+        createdAt: DateTime
+    }
+
     type Role {
         id: ID!
         type: RoleTypes!
@@ -21,15 +29,15 @@ const userSchema = gql`
         DOCENTE
         COORDENACAO
     }
-    
+
     type Query {
         users: [User],
         user(id: ID!): User
     }
 
     type Mutation {
-        includeUser(nome: String!, ativo: Boolean!, email: String, role: RoleTypes!, createdAt: DateTime): User!,
-        updateUser(id: ID!, nome: String, ativo: Boolean, email: String, role: RoleTypes): User!,
+        includeUser(user: UserInput): User!,
+        updateUser(id: ID!, user: UserInput): User!,
         deleteUserById(id: ID!): ID!
     }
 `

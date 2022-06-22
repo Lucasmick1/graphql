@@ -48,7 +48,7 @@ class UsersAPI extends RESTDataSource {
 
         const updateUser = {
             ...user,
-            ...update,
+            ...update.user,
         }
 
         await this.put(`/users/${user.id}`, updateUser)

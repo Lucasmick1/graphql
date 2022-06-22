@@ -18,7 +18,7 @@ const userResolvers = {
         user: (root, { id }, { dataSources }) => dataSources.usersAPI.getUser(id)
     },
     Mutation: {
-        includeUser: (root, user, { dataSources }) => dataSources.usersAPI.includeUser(user),
+        includeUser: (root, { user }, { dataSources }) => dataSources.usersAPI.includeUser(user),
         updateUser: (root, update, { dataSources }) => dataSources.usersAPI.updateUser(update),
         deleteUserById: (root, { id }, { dataSources }) => dataSources.usersAPI.deleteUserById(id)
     }

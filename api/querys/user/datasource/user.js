@@ -53,7 +53,7 @@ class UsersAPI extends RESTDataSource {
 
         await this.put(`/users/${user.id}`, updateUser)
 
-        const [role] = await this.get(`/roles?id=${updateUser.role}`)
+        const [role] = await this.get(`/roles?type=${updateUser.role}`)
         return { ...updateUser, role }
 
     }

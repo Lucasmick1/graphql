@@ -13,17 +13,23 @@ const userSchema = gql`
 
     type Role {
         id: ID!
-        type: String!
+        type: RoleTypes!
     }
 
+    enum RoleTypes {
+        ESTUDANTE
+        DOCENTE
+        COORDENACAO
+    }
+    
     type Query {
         users: [User],
         user(id: ID!): User
     }
 
     type Mutation {
-        includeUser(nome: String!, ativo: Boolean!, email: String, role: String!, createdAt: DateTime): User!,
-        updateUser(id: ID!, nome: String, ativo: Boolean, email: String, role: ID): User!,
+        includeUser(nome: String!, ativo: Boolean!, email: String, role: RoleTypes!, createdAt: DateTime): User!,
+        updateUser(id: ID!, nome: String, ativo: Boolean, email: String, role: RoleTypes): User!,
         deleteUserById(id: ID!): ID!
     }
 `

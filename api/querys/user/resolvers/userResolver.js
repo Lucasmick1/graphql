@@ -1,6 +1,11 @@
-const {GraphQLScalarType} = require('graphql')
+const { GraphQLScalarType } = require('graphql')
 
 const userResolvers = {
+    RolesType: {
+        ESTUDANTE: "ESTUDANTE", // mapeia os valores enumerados para um valor que queremos utilizar
+        COORDENACAO: "COORDENACAO",
+        DOCENTE: "DOCENTE"
+    },
     DateTime: new GraphQLScalarType({
         name: 'DateTime',
         description: 'string de data e hora no formato ISO-8601',
